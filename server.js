@@ -8,15 +8,7 @@ console.log("server is running");
 //     res.send('hello express');
 // });
 
-var middleware = {
-  requiredAuthentication: function (req, res, next) {
-    console.log('private route hit');
-  },
-  logger: function (req, res, next) {
-    console.log('Request: '+ ' '+ new Date().toString()  +' '  +req.method + ' ' + req.originalUrl);
-    next();
-  }
-};
+var middleware = require('./middleware');
 
 app.use(middleware.logger);
 
